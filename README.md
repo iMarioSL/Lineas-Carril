@@ -1,0 +1,3 @@
+# Detector de Linea CNN
+
+Aquí debe ir una buena descripción del proyecto....
