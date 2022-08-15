@@ -25,7 +25,7 @@ class Net(nn.Module):
         
         # Four convolutional layers with max pooling
         
-        self.conv1 = nn.Conv2d( 3, 32, 7)
+        self.conv1 = nn.Conv2d(3, 32, 7)
         self.pool1 = nn.MaxPool2d(4, 4)
         
         self.conv2 = nn.Conv2d(32, 64, 5)
