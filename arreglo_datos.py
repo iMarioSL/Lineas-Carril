@@ -96,6 +96,7 @@ def vectorDatos(path):
                 flagEmergencia = 1 # Dado que ya habremos agregado la linea de Emergancia           
                 
         nombreImagen = datosImagenes[i][j][5]
+        VectorTemp.append([nombreImagen])
         dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
         VectorTemp = [] # Reseteamos nuestro vector temporal
         

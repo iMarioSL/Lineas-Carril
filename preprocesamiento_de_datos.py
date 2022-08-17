@@ -6,7 +6,7 @@ def vectorImagenes(nombre_imagenes, path):
 
     Args:
         imagenes (Array): Array de nombre de las imagenes
-        path (Strig): La ruta de las imagenes
+        path (Strig): La ruta de imagenes
         dict = {'nombre_imagen': [vectorDeDatos]}
     """
     
