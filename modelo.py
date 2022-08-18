@@ -25,7 +25,7 @@ class Net(nn.Module):
         
         # Four convolutional layers with max pooling
         
-        self.conv1 = nn.Conv2d(3, 32, 7)
+        self.conv1 = nn.Conv2d(1, 32, 7)
         self.pool1 = nn.MaxPool2d(4, 4)
         
         self.conv2 = nn.Conv2d(32, 64, 5)
@@ -39,13 +39,13 @@ class Net(nn.Module):
         
         # Three fully connected layers
         
-        self.fc1 = nn.Linear(9216, 5000)   
+        self.fc1 = nn.Linear(5376, 3000)   
         self.drop5 = nn.Dropout(dropout_prob)
         
-        self.fc2 = nn.Linear(5000, 1024)
+        self.fc2 = nn.Linear(3000, 1024)
         self.drop6 = nn.Dropout(dropout_prob)
         
-        self.fc3 = nn.Linear(1024, 45)
+        self.fc3 = nn.Linear(1024, 28)
         
         ## Note that among the layers to add, consider including:
         # maxpooling layers, multiple conv layers, fully-connected layers, and other layers (such as dropout or batch normalization) to avoid overfitting
