@@ -45,7 +45,16 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(3000, 1024)
         self.drop6 = nn.Dropout(dropout_prob)
         
-        self.fc3 = nn.Linear(1024, 28)
+        self.fc3 = nn.Linear(1024, 8)
+        
+        
+
+        nn.init.kaiming_normal_(self.fc1.weight, mode='fan_in', 
+                                 nonlinearity='selu')
+        nn.init.kaiming_normal_(self.fc2.weight, mode='fan_in', 
+                                 nonlinearity='selu')
+        nn.init.xavier_normal_(self.fc3.weight)
+         
         
         ## Note that among the layers to add, consider including:
         # maxpooling layers, multiple conv layers, fully-connected layers, and other layers (such as dropout or batch normalization) to avoid overfitting

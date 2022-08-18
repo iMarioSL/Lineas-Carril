@@ -12,7 +12,7 @@ def transformacion_datos(data, output_size=150):
     
     for fila_datos in data[:-1]:
         puntos = np.append(puntos, np.array(fila_datos[5:]))
-    puntos = puntos.reshape(14,2)
+    puntos = puntos.reshape(4,2)
         
     h, w = 540, 960
     
