@@ -39,13 +39,13 @@ class Net(nn.Module):
         
         # Three fully connected layers
         
-        self.fc1 = nn.Linear(5376, 3000)   
+        self.fc1 = nn.Linear(2048, 1000)   
         self.drop5 = nn.Dropout(dropout_prob)
         
-        self.fc2 = nn.Linear(3000, 1024)
+        self.fc2 = nn.Linear(1000, 524)
         self.drop6 = nn.Dropout(dropout_prob)
         
-        self.fc3 = nn.Linear(1024, 8)
+        self.fc3 = nn.Linear(524, 8)
         
         
 

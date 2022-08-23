@@ -4,7 +4,7 @@ import cv2
 import torch
 
 
-def transformacion_datos(data, output_size=150):
+def transformacion_datos(data, output_size=100):
     
     path = 'C:\\Users\\masan\\Desktop\\Mario\\ESFM\\Octavo Semestre\\Servicio Social\\imagenes'
     nombre_imagen = data[-1][0]
