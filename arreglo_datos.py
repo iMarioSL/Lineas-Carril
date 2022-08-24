@@ -37,7 +37,8 @@ def vectorDatos(path):
     # Unimos los .csv's en un solo DataFrame
     df = pd.concat(map(pd.read_csv, files), ignore_index=False)
     df = df[["etiqueta", "x1", "y1", "x2", "y2", "imagen", "w", "h"]]
-    df = df.loc[(df['etiqueta'] == 'borde_izquierdo') | (df['etiqueta'] == 'borde_derecho')]
+    df = df.loc[(df['etiqueta'] == 'borde_izquierdo')
+                | (df['etiqueta'] == 'borde_derecho')]
 
     # Creamos una lista con los nombres de las imagenes (sin repetir)
     nombres = df['imagen'].unique()
@@ -66,21 +67,21 @@ def vectorDatos(path):
     for i in range(len(datosImagenes)):
 
         # Aqui vamos a iterar sobre los arreglos de datos de cada imagen
-        
-        
+
         for j in range(len(datosImagenes[i])):
-            if len(datosImagenes[i]) == 2:    
-                for j in range(len(datosImagenes[i])):
-                # Aqui va la prueba para solo el borde
-                    #if datosImagenes[i][j][0] == 'borde_izquierdo':
+            if len(datosImagenes[i]) == 2:
+                if datosImagenes[i][0][0] == 'borde_izquierdo' and datosImagenes[i][1][0] == 'borde_derecho':
+                    for j in range(len(datosImagenes[i])):
+                        # Aqui va la prueba para solo el borde
+                        # if datosImagenes[i][j][0] == 'borde_izquierdo':
                         # Extraemos la fila de parametros de la imagen dada una etiqueta
-                    datosImagenVec = parametroImagen(datosImagenes[i][j])
-                    VectorTemp.append(datosImagenVec)
-                            
-                nombreImagen = datosImagenes[i][j][5]
-                VectorTemp.append([nombreImagen])
-                dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
-                VectorTemp = []  # Reseteamos nuestro vector temporal
+                        datosImagenVec = parametroImagen(datosImagenes[i][j])
+                        VectorTemp.append(datosImagenVec)
+
+                    nombreImagen = datosImagenes[i][j][5]
+                    VectorTemp.append([nombreImagen])
+                    dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
+                    VectorTemp = []  # Reseteamos nuestro vector temporal
                 # Banderas de BordeIzquierdo, BordeDerecho y LineaDeEmergencia
                 #flagEmergencia = datosImagenVec[2]
 
@@ -104,15 +105,15 @@ def vectorDatos(path):
                 #VectorTemp.append([0, 0, 1, 0, 0, 0, 0, 0, 0])
                 # flagEmergencia = 1 # Dado que ya habremos agregado la linea de Emergancia
 
-        #if flagBordeDerecho == 0:
+        # if flagBordeDerecho == 0:
         #    VectorTemp.append([0, 0, 0, 0, 1, 0, 0, 0, 0])
-        #elif flagBordeIzquierdo == 0:
+        # elif flagBordeIzquierdo == 0:
         #    VectorTemp.append([0, 0, 0, 1, 0, 0, 0, 0, 0])
 
         #nombreImagen = datosImagenes[i][j][5]
-        #VectorTemp.append([nombreImagen])
+        # VectorTemp.append([nombreImagen])
         #dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
-        #VectorTemp = []  # Reseteamos nuestro vector temporal
+        # VectorTemp = []  # Reseteamos nuestro vector temporal
 
     return dic_nombre_marcas
 
