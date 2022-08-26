@@ -4,7 +4,7 @@ import cv2
 import torch
 
 
-def transformacion_datos(data, output_size=100):
+def transformacion_datos(data, output_size=150):
     
     path = 'C:\\Users\\masan\\Desktop\\Mario\\ESFM\\Octavo Semestre\\Servicio Social\\imagenes'
     nombre_imagen = data[-1][0]
@@ -33,8 +33,12 @@ def transformacion_datos(data, output_size=100):
     image_copy=  image_copy/255.0    
     img = image_copy
     
+    # Corte de la imagen
+    img = img[80:, :]
+    
     # escalado de puntos
     puntos = puntos * [new_w/w, new_h/h]
+    puntos[:,1] -= 80
     
     # Pasamos la imagen y los puntos a tensor
     if(len(img.shape) == 2):
