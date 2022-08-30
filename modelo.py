@@ -31,7 +31,7 @@ class Net(nn.Module):
         nn.init.kaiming_normal_(self.fc2.weight)
         self.drop6 = nn.Dropout(dropout_prob)
 
-        self.fc3 = nn.Linear(255, 8)
+        self.fc3 = nn.Linear(255, 6)
         nn.init.kaiming_normal_(self.fc3.weight)
 
 
