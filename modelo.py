@@ -23,15 +23,15 @@ class Net(nn.Module):
         self.pool4 = nn.MaxPool2d(2, 2)
 
         # Three fully connected layers
-        self.fc1 = nn.Linear(1792, 500)
+        self.fc1 = nn.Linear(1792, 1000)
         nn.init.kaiming_normal_(self.fc1.weight)
         self.drop5 = nn.Dropout(dropout_prob)
 
-        self.fc2 = nn.Linear(500, 255)
+        self.fc2 = nn.Linear(1000, 500)
         nn.init.kaiming_normal_(self.fc2.weight)
         self.drop6 = nn.Dropout(dropout_prob)
 
-        self.fc3 = nn.Linear(255, 6)
+        self.fc3 = nn.Linear(500, 6)
         nn.init.kaiming_normal_(self.fc3.weight)
 
 
