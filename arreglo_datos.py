@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import glob
-
+import csv
 
 def vectorDatos(path):
 
@@ -59,11 +59,12 @@ def vectorDatos(path):
 
     dic_nombre_marcas = {}
     VectorTemp = []
-    flagEmergencia = 0
+    #flagEmergencia = 0
     #lineasTotales = 7
 
     # Iteramos sobre el numero de datos de imagenes que tenemos
     # en este caso son 972
+    faltan = []
     for i in range(len(datosImagenes)):
 
         # Aqui vamos a iterar sobre los arreglos de datos de cada imagen
@@ -82,6 +83,8 @@ def vectorDatos(path):
                     VectorTemp.append([nombreImagen])
                     dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
                     VectorTemp = []  # Reseteamos nuestro vector temporal
+                else:
+                    faltan.append(datosImagenes[i][0][5])
                 # Banderas de BordeIzquierdo, BordeDerecho y LineaDeEmergencia
                 #flagEmergencia = datosImagenVec[2]
 
@@ -115,6 +118,12 @@ def vectorDatos(path):
         #dic_nombre_marcas[nombreImagen] = VectorTemp.copy()
         # VectorTemp = []  # Reseteamos nuestro vector temporal
 
+    print(len(faltan))
+    print(faltan)
+    with open("faltan.csv","w") as f:
+        wr = csv.writer(f, delimiter="\n")
+        wr.writerow(faltan)
+    
     return dic_nombre_marcas
 
 

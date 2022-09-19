@@ -24,15 +24,15 @@ class Net(nn.Module):
 
         # Three fully connected layers
         self.fc1 = nn.Linear(1792, 1000)
-        nn.init.kaiming_normal_(self.fc1.weight)
+        #nn.init.kaiming_normal_(self.fc1.weight)
         self.drop5 = nn.Dropout(dropout_prob)
 
         self.fc2 = nn.Linear(1000, 500)
-        nn.init.kaiming_normal_(self.fc2.weight)
+        #nn.init.kaiming_normal_(self.fc2.weight)
         self.drop6 = nn.Dropout(dropout_prob)
 
         self.fc3 = nn.Linear(500, 6)
-        nn.init.kaiming_normal_(self.fc3.weight)
+        #nn.init.kaiming_normal_(self.fc3.weight)
 
 
     def forward(self, x):
@@ -47,12 +47,12 @@ class Net(nn.Module):
         # Aplanar
         x = x.view(x.size(0), -1)
 
-        x = F.relu(self.fc1(x))
+        x = F.selu(self.fc1(x))
         x = self.drop5(x)
 
-        x = F.relu(self.fc2(x))
+        x = F.selu(self.fc2(x))
         x = self.drop6(x)
 
-        x = F.relu(self.fc3(x))
+        x = F.selu(self.fc3(x))
 
         return x
