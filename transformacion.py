@@ -39,7 +39,7 @@ def transformacion_datos(data, output_size=150):
     # escalado de puntos
     puntos = puntos * [new_w/w, new_h/h]
     puntos[:,1] -= 80
-    puntos = (puntos - 60)/150.0
+    puntos = (puntos - 55)/150.0
     
     
     # Pasamos la imagen y los puntos a tensor
