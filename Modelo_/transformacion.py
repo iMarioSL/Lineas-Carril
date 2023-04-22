@@ -7,7 +7,7 @@ import torch
 
 def transformacion_datos(data, output_size=150):
     
-    path = 'C:\\Users\\masan\\Desktop\\Mario\\ESFM\\Octavo Semestre\\Servicio Social\\imagenes'
+    path = '/kaggle/input/emergency-escape-ramp-lines/eerl_dataset/images'
     nombre_imagen = data[-1][0]
     puntos = np.array([])
     
