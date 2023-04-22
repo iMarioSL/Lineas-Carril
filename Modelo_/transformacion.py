@@ -24,7 +24,7 @@ def transformacion_datos(data, output_size=150):
         
     new_h, new_w = int(new_h), int(new_w)
     
-    img = Image.open(f'{path}\\{nombre_imagen}')
+    img = Image.open(f'{path}/{nombre_imagen}')
     img = np.asarray(img)
     img = cv2.resize(img, (new_w, new_h))
     
