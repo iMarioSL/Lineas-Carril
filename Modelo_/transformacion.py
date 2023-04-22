@@ -3,6 +3,7 @@ from PIL import Image
 import cv2
 import torch
 
+# Prueba
 
 def transformacion_datos(data, output_size=150):
     
